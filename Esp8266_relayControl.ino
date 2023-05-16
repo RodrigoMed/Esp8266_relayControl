@@ -17,7 +17,7 @@ WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org", gmtOffset_sec, daylightOffset_sec);
 
 // Relay pin
-const int relayPin = 2;
+const int relayPin = 0;
 
 // EEPROM addresses
 const int startHourAddr = 0;
@@ -41,7 +41,8 @@ void setup() {
 
   // Set relay pin as output
   pinMode(relayPin, OUTPUT);
-  digitalWrite(relayPin, HIGH);
+  Serial.println("Rele: Encendido");
+  digitalWrite(relayPin, LOW);
 
   while (WiFi.status() != WL_CONNECTED) {
     delay(1000);
